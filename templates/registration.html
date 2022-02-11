@@ -11,10 +11,16 @@
     <form action="" method="POST">
         {% csrf_token %}
         {% for field in Form %}
+        <br>
         {{field.label}}
         {{field}}
+        {{field.errors}}
         {% endfor %}
         <input type="submit">
+
+        {% for msg in messages %}
+        <p style="color:red;">{{msg}}</p>
+        {% endfor %}
     </form>
 </body>
 </html>
